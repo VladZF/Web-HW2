@@ -157,6 +157,46 @@ a:hover {
     font-weight: 600;
 }
 
+
+.search-container {
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    padding: 0 1rem;
+}
+
+#search-input {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease;
+    box-shadow: 0 1px 3px var(--shadow-color);
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(252, 129, 129, 0.3);
+}
+
+#search-input::placeholder {
+    color: var(--text-color);
+    opacity: 0.6;
+}
+
+#search-input::-webkit-search-cancel-button {
+    cursor: pointer;
+    filter: invert(var(--dark-theme, 0));
+}
+body.dark-theme #search-input::-webkit-search-cancel-button {
+     filter: invert(1);
+}
+
+
 .loading-indicator {
     display: flex;
     flex-direction: column;
@@ -166,7 +206,13 @@ a:hover {
     text-align: center;
     color: var(--text-color);
     opacity: 0.8;
+    width: 100%;
 }
+
+#loading-more {
+    padding: 1.5rem 1rem;
+}
+
 .spinner {
     width: 50px;
     height: 50px;
@@ -180,10 +226,19 @@ a:hover {
     to { transform: rotate(360deg); }
 }
 
+.no-results {
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
 .pokemon-grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 1.5rem;
+    min-height: 200px; /* Give some initial height */
 }
 
 .pokemon-tile {
@@ -212,6 +267,7 @@ a:hover {
     object-fit: contain;
     margin-bottom: 0.8rem;
     image-rendering: pixelated;
+    image-rendering: crisp-edges;
     background-color: var(--hover-bg);
     border-radius: 50%;
     padding: 5px;
@@ -341,6 +397,7 @@ a:hover {
     min-height: 140px;
     min-width: 140px;
     image-rendering: pixelated;
+    image-rendering: crisp-edges;
     object-fit: contain;
     border: 2px solid var(--border-color);
 }
@@ -400,11 +457,14 @@ a:hover {
 }
 .stats-list .stat-name {
     opacity: 0.9;
+    flex-shrink: 0;
+    white-space: nowrap;
 }
 .stats-list .stat-value {
     font-weight: bold;
     margin-left: 1em;
     color: var(--accent-color);
+    flex-shrink: 0;
 }
 .stats-list .stat-bar {
     height: 8px;
@@ -421,7 +481,6 @@ a:hover {
     transition: width 0.5s ease-out;
     width: 0;
 }
-
 
 
 @media (min-width: 768px) {
@@ -478,6 +537,7 @@ a:hover {
     }
     .pokemon-tile {
         min-height: 150px;
+        padding: 0.8rem 0.4rem;
     }
      .pokemon-tile img, .pokemon-tile .placeholder-sprite {
         width: 70px;
@@ -486,6 +546,15 @@ a:hover {
      .pokemon-tile span {
         font-size: 0.9rem;
     }
+
+    #search-input {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+    .search-container {
+        padding: 0 0.5rem;
+    }
+
     .modal-content {
         padding: 1.5rem;
     }
@@ -500,11 +569,23 @@ a:hover {
     }
      .modal-body .pokemon-meta {
          gap: 0.8rem;
+         flex-direction: column;
+         align-items: center;
      }
      .modal-body .pokemon-meta p {
          font-size: 0.9rem;
+         padding: 0.2rem 0.6rem;
      }
      .stats-list li {
          font-size: 0.9rem;
+         flex-wrap: wrap;
      }
+     .stats-list .stat-bar {
+         margin: 0.3rem 0.5rem;
+     }
+}
+
+#infinite-scroll-trigger {
+    height: 50px;
+    margin-top: 2rem;
 }

@@ -21,14 +21,30 @@
         <div class="container">
             <section id="pokemon-grid-section">
                 <h2 class="section-title">Выберите Покемона</h2>
-                <div id="loading-list" class="loading-indicator">
+
+                <div class="search-container">
+                    <label for="search-input" class="sr-only">Поиск по имени покемона</label>
+                    <input type="search" id="search-input" placeholder="Найти покемона по имени..." autocomplete="off">
+                </div>
+
+                <div id="loading-initial" class="loading-indicator">
                     <div class="spinner"></div>
                     <span>Загрузка покемонов...</span>
                 </div>
+
                 <div id="pokemon-grid" class="pokemon-grid-container">
                 </div>
-            </section>
 
+                <p id="no-results-message" class="no-results" style="display: none;">Подходящие покемоны не найдены.</p>
+
+                <div id="infinite-scroll-trigger" style="height: 50px;"></div> 
+
+                 <div id="loading-more" class="loading-indicator" style="display: none;">
+                    <div class="spinner"></div>
+                    <span>Загрузка следующих...</span>
+                 </div>
+
+            </section>
         </div>
     </main>
 
