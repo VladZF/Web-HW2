@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/public/pokeball.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Галерея Покемонов</title>
+    <link rel="stylesheet" href="/src/style.css">
+    <script type="module" src="/src/main.js" defer></script>
+</head>
+<body>
+    <header class="page-header">
+        <div class="container header-content">
+             <img src="/public/pokeball.svg" alt="Pokeball icon" class="header-icon">
+             <h1>Галерея Покемонов</h1>
+             <button id="theme-toggle-button" class="theme-button" aria-label="Сменить тему">☀️</button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section id="pokemon-grid-section">
+                <h2 class="section-title">Выберите Покемона</h2>
+                <div id="loading-list" class="loading-indicator">
+                    <div class="spinner"></div>
+                    <span>Загрузка покемонов...</span>
+                </div>
+                <div id="pokemon-grid" class="pokemon-grid-container">
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <div class="container">
+             <p>
+                Данные предоставлены
+                <a href="https://pokeapi.co/" target="_blank" rel="noopener noreferrer">PokéAPI</a>.
+            </p>
+            <p>© 2024 Vladislav Baranov 22SE2</p>
+        </div>
+    </footer>
+
+    <div id="pokemon-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-overlay" tabindex="-1" data-close-modal></div>
+        <div class="modal-content" role="document">
+            <button class="modal-close-btn" aria-label="Закрыть окно" data-close-modal>×</button>
+            <h3 id="modal-title" class="sr-only">Детали Покемона</h3>
+            <div id="modal-pokemon-details" class="modal-body">
+                <div class="loading-indicator modal-loading">
+                     <div class="spinner"></div>
+                     <span>Загрузка деталей...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
