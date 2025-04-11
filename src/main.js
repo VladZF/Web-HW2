@@ -9,7 +9,7 @@ const bodyElement = document.body;
 
 const POKEAPI_BASE_URL = 'https://pokeapi.co/api/v2/';
 const POKEMON_LIST_LIMIT = 500;
-const PLACEHOLDER_IMAGE_URL = '/question-mark.svg';
+const PLACEHOLDER_IMAGE_URL = '/public/question-mark.svg';
 
 let isDarkMode = false;
 
